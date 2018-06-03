@@ -20,7 +20,7 @@
         function skip(pageNo, pageSize) {
             //默认为第一页,显示5个结果值
             var pageNo = pageNo;
-            var pageSize = 5;
+            var pageSize = pageSize;
 
             $.post("/PageServlet", {"pageNo": pageNo, "pageSize": pageSize}, function (pageBean) {
                 var data = eval(pageBean.list);
@@ -55,13 +55,14 @@
                     isResetPage: false,
                     callBack: function (currPage, pageSize) {
                         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+                        //调用skip方法,传入参数当前页位置,每页行数
                         skip(currPage, pageSize)
                     }
                 });
             }, "json");
 
         }
-
+        //默认第一页,每页显示5行数据
         $(function () {
             skip(1, 5);
         });
