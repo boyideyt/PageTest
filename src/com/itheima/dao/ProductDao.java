@@ -10,6 +10,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProductDao {
+
+    /**
+     * 获取第(pageNo-1)*pageSize开始的pageSize调数据
+     * @param pageNo
+     * @param pageSize
+     * @return List<Product>
+     * @throws SQLException
+     */
     public static List<Product> getSearch(int pageNo, int pageSize) throws SQLException {
         //获取核心类对象
         QueryRunner queryRunner = new QueryRunner(JdbcUtils.getDataSource());
@@ -20,6 +28,11 @@ public class ProductDao {
         return list;
     }
 
+    /**
+     * 获取总条目数
+     * @return int
+     * @throws SQLException
+     */
     public static int getCount() throws SQLException {
         //获取核心类对象
         QueryRunner queryRunner = new QueryRunner(JdbcUtils.getDataSource());

@@ -18,9 +18,10 @@ public class PageServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //字符集修正
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
-        //获取参数
+        //每页行数和页数
         int pageNo = Integer.parseInt(request.getParameter("pageNo"));
         int pageSize = Integer.parseInt(request.getParameter("pageSize"));
         String json = null;

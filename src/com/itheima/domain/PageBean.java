@@ -7,6 +7,7 @@ public class PageBean {
     private List<Product> list;
     private int totalPage;
 
+
     public PageBean() {
     }
 
